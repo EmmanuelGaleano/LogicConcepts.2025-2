@@ -1,27 +1,25 @@
-﻿var numberString = string.Empty;
+﻿using Shared;
+
+var response = string.Empty;
 do
 {
-    Console.WriteLine("Ingrese numero entero o la palabra 'Salir' para salir: ");
-    numberString = Console.ReadLine();
-    if(numberString.ToLower() == "salir")
+    try
     {
-        continue;
-    }
-    var numberInt = 0;
-    if (int.TryParse(numberString, out numberInt))
-    { 
-        if (numberInt % 2 == 0)
+        var number = ConsoleExtensions.GetInt("Ingrese numero entero: ");
+        if (number % 2 == 0)
         {
-            Console.WriteLine($"El numero {numberInt}, es par");
+            Console.WriteLine($"El numero {number}, es par");
         }
         else
         {
-            Console.WriteLine($"El numero {numberInt}, es impar");
+            Console.WriteLine($"El numero {number}, es impar");
         }
     }
-    else
+    catch (Exception ex)
     {
-        Console.WriteLine($"El valor ingresado: {numberString} no es un numero entero valido");
+        Console.WriteLine($"Error: {ex.Message}");  
     }
-} while (numberString!.ToLower() != "salir");
-Console.WriteLine("Saliendo del programa...");  
+        Console.Write("Desea continuar? (S/M)? ");
+        response = Console.ReadLine()!.ToUpper();
+} while (response == "S");
+Console.WriteLine("Saliendo del programa...");
