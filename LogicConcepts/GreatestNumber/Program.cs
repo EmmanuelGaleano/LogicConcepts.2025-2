@@ -5,24 +5,24 @@ do
 {
     try
     {
-        var number1 = ConsoleExtensions.GetInt("Ingrese primer numero: ");
-        var number2 = ConsoleExtensions.GetInt("Ingrese segundo numero: ");
-        var number3 = ConsoleExtensions.GetInt("Ingrese tercer numero: ");
+        var a = ConsoleExtensions.GetInt("Ingrese primer numero: ");
+        var b = ConsoleExtensions.GetInt("Ingrese segundo numero: ");
+        var c = ConsoleExtensions.GetInt("Ingrese tercer numero: ");
 
-        if (number1 == number2 || number1 == number3 || number2 == number3)
+        if (a == b || a == c || b == c)
         {
             Console.WriteLine("Error: No se permiten numeros iguales.");
         }
         else
         {
-            var greatest = number1;
-            if (number2 > greatest)
+            var greatest = a;
+            if (b > greatest)
             {
-                greatest = number2;
+                greatest = b;
             }
-            if (number3 > greatest)
+            if (c > greatest)
             {
-                greatest = number3;
+                greatest = c;
             }
             Console.WriteLine($"El numero mayor es: {greatest}");
         }
